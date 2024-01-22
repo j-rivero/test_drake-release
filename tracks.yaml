@@ -1,3 +1,4 @@
+release_repo_url: https://github.com/j-rivero/test_drake-release
 tracks:
   rolling:
     actions:
