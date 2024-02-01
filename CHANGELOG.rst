@@ -1,8 +1,10 @@
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package drake
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for package drake_vendor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.25.0 (2024-01-22)
+1.25.1 (2024-02-01)
 -------------------
-* Testing fork to early build code in the ROS buildfarm
-* Contributors: Jeremy Nimmer, Jose Luis Rivero
+* Rename the project to drake_vendor
+  Name change is waiting to resolve `#7 <https://github.com/j-rivero/ros-drake-vendor/issues/7>`_ but this name change was
+  required in order to make the examples to work when using the
+  drake-extras.cmake.

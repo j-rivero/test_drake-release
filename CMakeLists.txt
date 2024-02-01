@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(drake CXX)
+project(drake_vendor CXX)
 
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_vendor_package REQUIRED)
@@ -17,8 +17,7 @@ ament_vendor(drake
     -DWITH_USER_EIGEN:BOOL=ON
     -DWITH_USER_FMT:BOOL=ON
     -DWITH_USER_SPDLOG:BOOL=ON
-  PATCHES patches
   GLOBAL_HOOK
 )
 
-ament_package()
+ament_package(CONFIG_EXTRAS drake-extras.cmake)
