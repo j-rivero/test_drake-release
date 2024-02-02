@@ -10,7 +10,7 @@ ament_vendor(drake
   CMAKE_ARGS
 # At the moment, closed-source dependencies are disabled.
     -DWITH_GUROBI:BOOL=OFF
-    -DWITH_MOSEK:BOOL=OFF 
+    -DWITH_MOSEK:BOOL=OFF
     -DWITH_SNOPT:BOOL=OFF
 # Drake should use the Ament version of these dependencies found by CMake,
 # not the Ubuntu version found in /usr/include.
@@ -18,7 +18,7 @@ ament_vendor(drake
     -DWITH_USER_FMT:BOOL=ON
     -DWITH_USER_SPDLOG:BOOL=ON
   GLOBAL_HOOK
-  PATCHES patches
+  PATCHES patches/0001-no-lsb-release.patch
 )
 
 ament_package(CONFIG_EXTRAS drake-extras.cmake)
