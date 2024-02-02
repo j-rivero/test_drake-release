@@ -1,0 +1,38 @@
+name: builder
+
+on:
+  push:
+
+jobs:
+  build_testing:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: rolling
+      - uses: ros-tooling/action-ros-ci@v0.3
+        with:
+          package-name: drake
+          target-ros2-distro: rolling
+          skip-tests: true
+          colcon-defaults: |
+            {
+              "build": {
+                "merge-install": true,
+                "symlink-install": true,
+                "cmake-target": [
+                  "install"
+                ]
+              }
+            }
+      - name: Build cmake example
+        run: |
+          source /home/runner/work/ros-drake-vendor/ros-drake-vendor/ros_ws/install/setup.bash
+          echo "CMAKE_PREFIX_PATH: $CMAKE_PREFIX_PATH"
+          echo "PATH: $PATH"
+          # Checkin if lcm-binaries are in path
+          which lcm-spy || true
+          git clone https://github.com/RobotLocomotion/drake-external-examples
+          cd drake-external-examples/drake_cmake_installed_apt
+          cmake -B build
+          ctest --test-dir build
