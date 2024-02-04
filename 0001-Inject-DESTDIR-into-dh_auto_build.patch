@@ -1,4 +1,4 @@
-From 26353d9c31fccc9e933669e888f13a0c69f08dd0 Mon Sep 17 00:00:00 2001
+From 9db56adc43950c4614e084679b4f50225e44b370 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Sun, 4 Feb 2024 23:01:10 +0100
 Subject: [PATCH] Inject DESTDIR into dh_auto_build
