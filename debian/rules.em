@@ -46,6 +46,7 @@ override_dh_auto_build:
 	# the install target when executing make. That target will install
 	# Drake generated code in this step. Injecting DESTDIR since the Drake
 	# CMake wrapper is sensible to transform it into an installation prefix.
+	export DESTDIR=$(CURDIR)/debian/@(Package)/
 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
 	DESTDIR=$(CURDIR)/debian/@(Package)/ dh_auto_build
 
