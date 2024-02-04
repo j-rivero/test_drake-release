@@ -1,0 +1,32 @@
+From 26353d9c31fccc9e933669e888f13a0c69f08dd0 Mon Sep 17 00:00:00 2001
+From: Jose Luis Rivero <jrivero@osrfoundation.org>
+Date: Sun, 4 Feb 2024 23:01:10 +0100
+Subject: [PATCH] Inject DESTDIR into dh_auto_build
+
+Signed-off-by: Jose Luis Rivero <jrivero@osrfoundation.org>
+---
+ debian/rules.em | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 276329d..6b04b63 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -41,8 +41,13 @@ override_dh_auto_build:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
++	#
++	# j-rivero: inject DESTDIR since the bazel Cmake wrapper in Drake will run
++	# the install target when executing make. That target will install
++	# Drake generated code in this step. Injecting DESTDIR since the Drake
++	# CMake wrapper is sensible to transform it into an installation prefix.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	dh_auto_build
++	DESTDIR=$(CURDIR)/debian/@(Package)/ dh_auto_build
+ 
+ override_dh_auto_test:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+-- 
+2.34.1
+
