@@ -1,4 +1,4 @@
-From 7f56c4d2a27f8fab3b38c6e3146b24e7df4f6ca6 Mon Sep 17 00:00:00 2001
+From dd324e42fe76d2cef37441e755406d3cb5c19490 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Mon, 5 Feb 2024 13:56:15 +0100
 Subject: [PATCH 3/3] Debug messages and install change
