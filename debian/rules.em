@@ -70,4 +70,10 @@ override_dh_auto_install:
 	# in the install tree that was dropped by catkin, and source it.  It will
 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
-	dh_auto_install
+	echo "Find build files:" && \
+	ls -R DESTDIR=$(CURDIR)/debian/@(Package)/ && \
+	echo "Run auto_build again:" && \
+	DESTDIR=$(CURDIR)/debian/@(Package)/ dh_auto_build && \
+	dh_auto_install && \
+	echo "Post install files:" && \
+	ls -R DESTDIR=$(CURDIR)/debian/@(Package)/
