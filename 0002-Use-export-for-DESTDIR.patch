@@ -1,0 +1,25 @@
+From ab194c4788fa638412882f7f23a36bfb54113cb8 Mon Sep 17 00:00:00 2001
+From: Jose Luis Rivero <jrivero@osrfoundation.org>
+Date: Sun, 4 Feb 2024 23:33:24 +0100
+Subject: [PATCH 2/3] Use export for DESTDIR
+
+Signed-off-by: Jose Luis Rivero <jrivero@osrfoundation.org>
+---
+ debian/rules.em | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 6b04b63..840bfea 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -46,6 +46,7 @@ override_dh_auto_build:
+ 	# the install target when executing make. That target will install
+ 	# Drake generated code in this step. Injecting DESTDIR since the Drake
+ 	# CMake wrapper is sensible to transform it into an installation prefix.
++	export DESTDIR=$(CURDIR)/debian/@(Package)/
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+ 	DESTDIR=$(CURDIR)/debian/@(Package)/ dh_auto_build
+ 
+-- 
+2.34.1
+

@@ -1,0 +1,29 @@
+From 7f56c4d2a27f8fab3b38c6e3146b24e7df4f6ca6 Mon Sep 17 00:00:00 2001
+From: Jose Luis Rivero <jrivero@osrfoundation.org>
+Date: Mon, 5 Feb 2024 13:56:15 +0100
+Subject: [PATCH 3/3] Debug messages and install change
+
+Signed-off-by: Jose Luis Rivero <jrivero@osrfoundation.org>
+---
+ debian/rules.em | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 840bfea..75c8edc 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -70,4 +70,10 @@ override_dh_auto_install:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	dh_auto_install
++	echo "Find build files:" && \
++	ls -R DESTDIR=$(CURDIR)/debian/@(Package)/ && \
++	echo "Run auto_build again:" && \
++	DESTDIR=$(CURDIR)/debian/@(Package)/ dh_auto_build && \
++	dh_auto_install && \
++	echo "Post install files:" && \
++	ls -R DESTDIR=$(CURDIR)/debian/@(Package)/
+-- 
+2.34.1
+
