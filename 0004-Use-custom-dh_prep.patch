@@ -1,0 +1,38 @@
+From 48350914129b604fac9dbe39dfed95e880f48a61 Mon Sep 17 00:00:00 2001
+From: Jose Luis Rivero <jrivero@osrfoundation.org>
+Date: Mon, 5 Feb 2024 21:03:04 +0100
+Subject: [PATCH 4/4] Use custom dh_prep
+
+Signed-off-by: Jose Luis Rivero <jrivero@osrfoundation.org>
+---
+ debian/rules.em | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 75c8edc..7a12ddc 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -65,15 +65,14 @@ override_dh_shlibdeps:
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+ 	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/
+ 
++override_dh_prep:
++	dh_prep -X$(CURDIR)/debian/@(Package)/@
++
+ override_dh_auto_install:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+ 	echo "Find build files:" && \
+-	ls -R DESTDIR=$(CURDIR)/debian/@(Package)/ && \
+-	echo "Run auto_build again:" && \
+-	DESTDIR=$(CURDIR)/debian/@(Package)/ dh_auto_build && \
+-	dh_auto_install && \
+-	echo "Post install files:" && \
+-	ls -R DESTDIR=$(CURDIR)/debian/@(Package)/
++	ls -R $(CURDIR)/debian/@(Package)/ && \
++	dh_auto_install
+-- 
+2.34.1
+
