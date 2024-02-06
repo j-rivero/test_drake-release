@@ -1,4 +1,4 @@
-From 491d33589a8d9fd981fd2203c1e0ce0bb8e83011 Mon Sep 17 00:00:00 2001
+From 99f58d7e90d6c377d7403c3348be77f4d2a2fe4f Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Tue, 6 Feb 2024 17:07:49 +0100
 Subject: [PATCH 6/6] Fix pattern

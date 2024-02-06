@@ -1,4 +1,4 @@
-From 08bc2eb57e2935543547bab7542adfb6e2ea26ec Mon Sep 17 00:00:00 2001
+From 5cfd250d9fb1995c71ad37fbc24e738b0e3a2fe3 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Sun, 4 Feb 2024 23:33:24 +0100
 Subject: [PATCH 2/6] Use export for DESTDIR
