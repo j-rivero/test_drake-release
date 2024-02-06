@@ -1,0 +1,26 @@
+From cfd414bb7951b85ea67171d809691d96402ca93d Mon Sep 17 00:00:00 2001
+From: Jose Luis Rivero <jrivero@osrfoundation.org>
+Date: Tue, 6 Feb 2024 12:34:05 +0100
+Subject: [PATCH 5/5] Use relative
+
+Signed-off-by: Jose Luis Rivero <jrivero@osrfoundation.org>
+---
+ debian/rules.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 7a12ddc..4e6f8f8 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -66,7 +66,7 @@ override_dh_shlibdeps:
+ 	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/
+ 
+ override_dh_prep:
+-	dh_prep -X$(CURDIR)/debian/@(Package)/@
++	dh_prep -Xdebian/@(Package)/@
+ 
+ override_dh_auto_install:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+-- 
+2.34.1
+
