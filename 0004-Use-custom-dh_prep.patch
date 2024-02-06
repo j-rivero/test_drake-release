@@ -1,4 +1,4 @@
-From 7a04516bbe05db38dfd91a04e0b4b899cb264865 Mon Sep 17 00:00:00 2001
+From b5f2ed84f8e9a88dd61fc4563a19dcf7233d4862 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Mon, 5 Feb 2024 21:03:04 +0100
 Subject: [PATCH 4/5] Use custom dh_prep
