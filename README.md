@@ -1,3 +1,26 @@
+## drake (rolling) - 1.25.5-6
+
+The packages in the `drake` repository were released into the `rolling` distro by running `/usr/bin/bloom-release drake --track rolling --ros-distro rolling --no-pull-request --override-release-repository-url https://github.com/j-rivero/test_drake-release --override-release-repository-push-url https://github.com/j-rivero/test_drake-release -y` on `Tue, 06 Feb 2024 11:35:27 -0000`
+
+The `drake_vendor` package was released.
+
+Version of package(s) in repository `drake`:
+
+- upstream repository: https://github.com/j-rivero/ros-drake-vendor.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `1.25.5-5`
+- new version: `1.25.5-6`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## drake (rolling) - 1.25.5-5
 
 The packages in the `drake` repository were released into the `rolling` distro by running `/usr/bin/bloom-release drake --track rolling --ros-distro rolling --no-pull-request --override-release-repository-url https://github.com/j-rivero/test_drake-release --override-release-repository-push-url https://github.com/j-rivero/test_drake-release -y` on `Mon, 05 Feb 2024 20:04:16 -0000`
