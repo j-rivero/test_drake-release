@@ -66,7 +66,7 @@ override_dh_shlibdeps:
 	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/
 
 override_dh_prep:
-	dh_prep -X$(CURDIR)/debian/@(Package)/@
+	dh_prep -Xdebian/@(Package)/@
 
 override_dh_auto_install:
 	# In case we're installing to a non-standard location, look for a setup.sh
