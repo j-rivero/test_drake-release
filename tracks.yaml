@@ -16,10 +16,10 @@ tracks:
     - git-bloom-generate -y rosrpm --prefix release/:{ros_distro} :{ros_distro} -i
       :{release_inc} --os-name rhel
     devel_branch: jrivero/initial_code
-    last_version: 1.25.5
+    last_version: 1.26.1
     name: upstream
     patches: null
-    release_inc: '7'
+    release_inc: '1'
     release_repo_url: https://github.com/j-rivero/test_drake-release
     release_tag: :{version}
     ros_distro: rolling
