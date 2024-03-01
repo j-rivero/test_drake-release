@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
-  <name>drake_vendor</name>
-  <version>1.25.5</version>
+  <name>drake</name>
+  <version>1.26.1</version>
   <description>
-    The drake_vendor package provides a ROS installation for the Drake project
+    The drake package provides a ROS installation for the Drake project
     https://drake.mit.edu/. The package uses ament_vendor to
     download and build a given Drake version.
   </description>
@@ -59,6 +59,4 @@
   <depend>spdlog</depend>
   <!-- FIXME: workaround for problems with vendoring package not install vcs -->
   <depend>python3-vcstool</depend>
-  <!-- FIXME: workaround for problems with vendoring package not install lsb-release -->
-  <depend>python3-distro</depend>
 </package>

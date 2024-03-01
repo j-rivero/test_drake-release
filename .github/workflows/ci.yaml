@@ -19,20 +19,20 @@ jobs:
             {
               "build": {
                 "merge-install": true,
-                "symlink-install": true,
-                "cmake-target": [
-                  "install"
-                ]
+                "cmake-target": "install"
               }
             }
-      - name: Build cmake example
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          repository: RobotLocomotion/drake-external-examples
+          ref: main
+          path: ros_ws/src
+      - name: build tests
+        shell: bash
+        working-directory: ros_ws
         run: |
-          source /home/runner/work/ros-drake-vendor/ros-drake-vendor/ros_ws/install/setup.bash
-          echo "CMAKE_PREFIX_PATH: $CMAKE_PREFIX_PATH"
-          echo "PATH: $PATH"
-          # Checkin if lcm-binaries are in path
-          which lcm-spy || true
-          git clone https://github.com/RobotLocomotion/drake-external-examples
-          cd drake-external-examples/drake_cmake_installed_apt
-          cmake -B build
-          ctest --test-dir build
+          . /opt/ros/rolling/setup.bash
+          . install/setup.bash
+          colcon graph
+          colcon build --merge-install --packages-select drake_cmake_installed drake_cmake_installed_apt drake_ament_cmake_installed --event-handlers=console_direct+

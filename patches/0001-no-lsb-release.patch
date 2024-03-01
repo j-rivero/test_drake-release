@@ -1,0 +1,50 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a23724fd05..ec5856e06d 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -52,43 +52,8 @@ if(APPLE)
+   endif()
+   list(APPEND BAZELRC_IMPORTS "tools/macos-arch-${MACOS_ARCH}.bazelrc")
+ else()
+-  find_program(LSB_RELEASE_EXECUTABLE NAMES lsb_release)
+-
+-  if(NOT LSB_RELEASE_EXECUTABLE)
+-    message(FATAL_ERROR "Could NOT find the lsb_release executable")
+-  endif()
+-
+-  mark_as_advanced(LSB_RELEASE_EXECUTABLE)
+-
+-  execute_process(COMMAND "${LSB_RELEASE_EXECUTABLE}" --id --short
+-    RESULT_VARIABLE LSB_RELEASE_ID_SHORT_RESULT_VARIABLE
+-    OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT_OUTPUT_VARIABLE
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-  )
+-
+-  if(LSB_RELEASE_ID_SHORT_RESULT_VARIABLE EQUAL 0)
+-    set(UNIX_DISTRIBUTION_ID "${LSB_RELEASE_ID_SHORT_OUTPUT_VARIABLE}")
+-  endif()
+-
+-  if(NOT UNIX_DISTRIBUTION_ID STREQUAL Ubuntu)
+-    message(WARNING
+-      "Distribution ${UNIX_DISTRIBUTION_ID} is NOT supported"
+-    )
+-  endif()
+-
+-  string(TOLOWER "${UNIX_DISTRIBUTION_ID}" UNIX_DISTRIBUTION_ID)
+-
+-  execute_process(COMMAND "${LSB_RELEASE_EXECUTABLE}" --codename --short
+-    RESULT_VARIABLE LSB_RELEASE_CODENAME_SHORT_RESULT_VARIABLE
+-    OUTPUT_VARIABLE LSB_RELEASE_CODENAME_SHORT_OUTPUT_VARIABLE
+-    OUTPUT_STRIP_TRAILING_WHITESPACE
+-  )
+-
+-  if(LSB_RELEASE_CODENAME_SHORT_RESULT_VARIABLE EQUAL 0)
+-    set(UNIX_DISTRIBUTION_CODENAME
+-      "${LSB_RELEASE_CODENAME_SHORT_OUTPUT_VARIABLE}"
+-    )
+-  endif()
++  # Force jammy for testing proposes
++  set(UNIX_DISTRIBUTION_CODENAME "jammy")
+ 
+   # The supported releases should match those listed in both
+   # doc/_pages/from_source.md and tools/workspace/os.bzl.
