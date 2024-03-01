@@ -2,6 +2,11 @@
 Changelog for package drake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.26.2 (2024-03-01)
+-------------------
+* Define the right patch
+* Contributors: Jose Luis Rivero
+
 1.26.1 (2024-03-01)
 -------------------
 * Update drake to use plain drake name
