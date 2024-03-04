@@ -2,6 +2,12 @@
 Changelog for package drake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.26.3 (2024-03-04)
+-------------------
+* Remove lsb-release patch and add the rosdep key
+* Fix unset code
+* Contributors: Jose Luis Rivero
+
 1.26.2 (2024-03-01)
 -------------------
 * Define the right patch
