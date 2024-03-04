@@ -17,6 +17,7 @@ ament_vendor(drake
     -DWITH_USER_EIGEN:BOOL=ON
     -DWITH_USER_FMT:BOOL=ON
     -DWITH_USER_SPDLOG:BOOL=ON
+  GLOBAL_HOOK
 )
 
 ament_package(CONFIG_EXTRAS drake-extras.cmake)
