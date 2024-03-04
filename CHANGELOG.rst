@@ -8,6 +8,15 @@ Changelog for package drake
 * Fix unset code
 * Contributors: Jose Luis Rivero
 
+1.26.4 (2024-03-04)
+-------------------
+* Use GLOBAL_HOOK
+* 1.26.3
+* update changelog
+* Remove lsb-release patch and add the rosdep key
+* Fix unset code
+* Contributors: Jose Luis Rivero
+
 1.26.2 (2024-03-01)
 -------------------
 * Define the right patch
