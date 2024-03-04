@@ -1,0 +1,85 @@
+ros-rolling-drake (1.26.3-2jammy) jammy; urgency=high
+
+  * Remove lsb-release patch and add the rosdep key
+  * Fix unset code
+  * Contributors: Jose Luis Rivero
+
+ -- Drake Users <drake-users@mit.edu>  Sun, 03 Mar 2024 23:00:00 -0000
+
+ros-rolling-drake (1.26.2-2jammy) jammy; urgency=high
+
+  * Define the right patch
+  * Contributors: Jose Luis Rivero
+
+ -- Drake Users <drake-users@mit.edu>  Thu, 29 Feb 2024 23:00:00 -0000
+
+ros-rolling-drake (1.26.1-2jammy) jammy; urgency=high
+
+  * Update drake to use plain drake name
+  * 1.25.5
+  * Update changelog
+  * 1.25.4
+  * Update changelog
+  * 1.25.3
+  * Update changelog
+  * Rework patches
+  * 1.25.2
+  * Update changelog
+  * Use patch to skip lsb_release. Testing proposes.
+  * 1.25.1
+  * Remove current changelog
+  * Add vcstool to workaround buildfarm problems
+  * 1.25.0
+  * Prepare for version 1.25.0
+  * Added testing CHangelog
+  * Use libjchart2d-java from rosdistro and remove custom patch
+  * Rename the project to drake_vendor
+    Name change is waiting to resolve #7 <https://github.com/j-rivero/ros-drake-vendor/issues/7> but this name change was
+    required in order to make the examples to work when using the
+    drake-extras.cmake.
+  * Remove empty line and retab comment
+  * Added comments on CMAKE_ARGS
+  * Remove unused line
+  * Simplify the bash prompt call
+  * DRAKE_IS_BUILDING_DOCUMENTATION is a no-op. Removed
+  * Use upstream Drake v1.25.0. Drop clang patch
+  * Use Drake real version in package.xml
+  * debug path
+  * Update ci.yaml
+  * Run examples after build
+  * Use right branch for tests
+  * Use drake-examples to build 3 external examples
+  * Use -extras to be a transparent wrapper of upstream drake
+  * Use plain drake name
+  * Typo
+  * Do not use global_hook but extras
+  * Update ci.yaml
+  * Use drake_vendor name
+  * Use drake_vendor as name for the ROS package
+  * Right param order
+  * Force the build/ dir creation
+  * Build external example
+  * Don't need patchelf out of the package.xml anymore
+  * Use make install
+  * Test CI
+  * Added a Dockerfile for testing
+  * Initial ROS drake package and repository information
+    New ROS drake package based on just calling ament_vendor
+    to download, build and install the version 1.24 of Drake.
+    In this initial phase the GUROBI, MOSEK and SNOPT
+    components are disabled in the build using the CMake
+    parameters.
+    The ament_vendor uses a couple of patches to deal with
+    issues related to clang version and to disable the
+    assumption of platform having a libjchart2d-java package.
+    Patches uses the Debian DEP-3 format to include metadata
+    on the same file.
+    Dependencies are based on the official documentation and
+    comments are in package.xml.
+  * Add files via upload
+  * Initial commit
+  * Contributors: Jeremy Nimmer, Jose Luis Rivero
+
+ -- Drake Users <drake-users@mit.edu>  Thu, 29 Feb 2024 23:00:00 -0000
+
+
