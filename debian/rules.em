@@ -41,13 +41,8 @@ override_dh_auto_build:
 	# In case we're installing to a non-standard location, look for a setup.sh
 	# in the install tree that was dropped by catkin, and source it.  It will
 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
-	#
-	# j-rivero: inject DESTDIR since the bazel Cmake wrapper in Drake will run
-	# the install target when executing make. That target will install
-	# Drake generated code in this step. Injecting DESTDIR since the Drake
-	# CMake wrapper is sensible to transform it into an installation prefix.
 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
-	DESTDIR=$(CURDIR)/debian/@(Package)/ dh_auto_build
+	dh_auto_build
 
 override_dh_auto_test:
 	# In case we're installing to a non-standard location, look for a setup.sh
